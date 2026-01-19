@@ -1,0 +1,22 @@
+opening Notebook
+python -m jupyter notebook
+
+
+python3 -m pip install jupyter
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade jupyter
+python3 -m jupyter lab
+
+
+Verification
+
+py --version   # Windows
+python3 --version   # Linux/Mac
+
+py -m pip show jupyter   # Windows
+python3 -m pip show jupyter   # Linux/Mac
+
+
+activating 
+myenv\Scripts\activate
+myenv\Scripts\Activate.ps1
