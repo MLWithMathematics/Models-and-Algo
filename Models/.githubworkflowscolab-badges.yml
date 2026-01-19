@@ -1,0 +1,39 @@
+name: Add/Update Colab Badges
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.ipynb'
+      - '**.md'
+  pull_request:
+    paths:
+      - '**.ipynb'
+      - '**.md'
+
+permissions:
+  contents: write   # Very important - allows the action to commit back
+
+jobs:
+  badges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Important for detecting renames/moves
+
+      - name: Add/Update Colab badges
+        uses: trsvchn/colab-badge-action@v4
+        with:
+          check: "all"               # ← this makes it process ALL notebooks
+          update: true               # updates badges if notebook moved/renamed
+          target_branch: main
+          verbose: true              # helpful for debugging
+
+      - name: Commit & Push changes (if any)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update colab badges [ci skip]"
+          branch: main
+          skip_dirty_check: false
