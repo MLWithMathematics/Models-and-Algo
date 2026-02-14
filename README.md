@@ -122,7 +122,7 @@ To contribute:
 
 ## 📜 License
 
-This project is open source — feel free to use and adapt it for your learning projects. *(Add actual license name here if available, e.g., MIT)*
+This project is open source — feel free to use and adapt it for your learning projects.
 
 ---
 
